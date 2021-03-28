@@ -14,3 +14,7 @@ exports.templateResponse = (status, success, msg, data) => {
         data
     }
 }
+
+exports.uniq = (a) => {
+    return Array.from(new Set(a));
+}

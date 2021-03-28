@@ -3,7 +3,6 @@ let saw = require('./saw')
 describe('interpolated test', () => {
     it('should count', () => {
         let test = saw.interpolate(1, 4, 25, 100, 70)
-        console.log({test});
     });
 })
 

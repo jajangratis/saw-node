@@ -220,23 +220,23 @@ Source : https://medium.com/skyshidigital/sistem-pengambilan-keputusan-dengan-al
         },
         {
             "parameter": "ram",
-            "rule": "feature"
+            "rule": "benefit"
         },
         {
             "parameter": "memory",
-            "rule": "feature"
+            "rule": "benefit"
         },
         {
             "parameter": "processor",
-            "rule": "feature"
+            "rule": "benefit"
         },
         {
             "parameter": "camera",
-            "rule": "feature"
+            "rule": "benefit"
         },
         {
             "parameter": "build",
-            "rule": "feature"
+            "rule": "benefit"
         }
     ]
 }
@@ -280,6 +280,189 @@ Source : https://medium.com/skyshidigital/sistem-pengambilan-keputusan-dengan-al
             "camera": 0.2,
             "build": 0.4,
             "total": 3.528571428571428
+        }
+    ]
+}
+```
+
+```
+
+# B. TOPSIS
+## B.1. ENDPOINT (METHOD : POST)  
+
+1. Description : This endpoint is used for saw method.
+2. Endpoint : `/api/topsis`
+3. Sample endpoint : `http://localhost:7777/api/topsis`
+
+## B.2.BODY
+
+* Type : **application/json**
+* Input Parameter :
+	* `data` : Array input | array
+    * `bobot` : Array input | array
+    * `rule` : Array input | array
+* Sample of input format : 
+
+```
+{
+    "data": [
+        {
+            "nama": "S1",
+            "ram": 2,
+            "harga": 500000,
+            "memory": 16,
+            "processor": 4,
+            "camera": 3,
+            "build": 6
+        },
+        {
+            "nama": "S10",
+            "ram": 4,
+            "harga": 2500000,
+            "memory": 32,
+            "processor": 16,
+            "camera": 8,
+            "build": 10
+        },
+        {
+            "nama": "S2",
+            "ram": 2,
+            "harga": 250000,
+            "memory": 8,
+            "processor": 2,
+            "camera": 2,
+            "build": 7
+        }
+    ],
+    "bobot": {
+        "harga": 0.3,
+        "ram": 0.3,
+        "memory": 0.15,
+        "processor": 0.15,
+        "camera": 0.1,
+        "build": 0.4
+    },
+    "rule": [
+        {
+            "parameter": "harga",
+            "rule": "cost"
+        },
+        {
+            "parameter": "ram",
+            "rule": "benefit"
+        },
+        {
+            "parameter": "memory",
+            "rule": "benefit"
+        },
+        {
+            "parameter": "processor",
+            "rule": "benefit"
+        },
+        {
+            "parameter": "camera",
+            "rule": "benefit"
+        },
+        {
+            "parameter": "build",
+            "rule": "benefit"
+        }
+    ]
+}
+```
+
+* Output Parameter :
+
+* Sample of output format :
+```
+{
+    "status": 200,
+    "success": true,
+    "msg": "ok",
+    "data": [
+        {
+            "nama": "S10",
+            "ram": 0.8164965809277261,
+            "harga": 0.9759000729485332,
+            "memory": 0.8728715609439696,
+            "processor": 0.9630868246861536,
+            "camera": 0.9116846116771036,
+            "build": 0.7352146220938077,
+            "VTOTAL": 2.725080390227725,
+            "DramMin": 0.5715476066494083,
+            "DramPlus": 0.6940220937885673,
+            "Vram": 0.45161290322580644,
+            "DhargaMin": 0.6831300510639733,
+            "DhargaPlus": 0.9466230707600772,
+            "Vharga": 0.4191616766467066,
+            "DmemoryMin": 0.7419408268023742,
+            "DmemoryPlus": 0.8401388774085707,
+            "Vmemory": 0.4689655172413793,
+            "DprocessorMin": 0.8186238009832305,
+            "DprocessorPlus": 0.9450289467232882,
+            "Vprocessor": 0.46416382252559724,
+            "DcameraMin": 0.8205161505093932,
+            "DcameraPlus": 0.888892496385176,
+            "Vcamera": 0.48,
+            "DbuildMin": 0.44112877325628463,
+            "DbuildPlus": 0.5587631127912939,
+            "Vbuild": 0.4411764705882353
+        },
+        {
+            "nama": "S2",
+            "ram": 0.4082482904638631,
+            "harga": 0.09759000729485331,
+            "memory": 0.2182178902359924,
+            "processor": 0.1203858530857692,
+            "camera": 0.2279211529192759,
+            "build": 0.5146502354656654,
+            "VTOTAL": 2.4095901369585584,
+            "DramMin": 0.16329931618554525,
+            "DramPlus": 0.28577380332470415,
+            "Vram": 0.36363636363636365,
+            "DhargaMin": 0.19518001458970666,
+            "DhargaPlus": 0.06831300510639732,
+            "Vharga": 0.7407407407407408,
+            "DmemoryMin": 0.08728715609439697,
+            "DmemoryPlus": 0.18548520670059354,
+            "Vmemory": 0.32,
+            "DprocessorMin": 0.024077170617153823,
+            "DprocessorPlus": 0.10232797512290381,
+            "Vprocessor": 0.1904761904761904,
+            "DcameraMin": 0.1367526917515655,
+            "DcameraPlus": 0.2051290376273483,
+            "Vcamera": 0.39999999999999997,
+            "DbuildMin": 0.22056438662814226,
+            "DbuildPlus": 0.3381987261631515,
+            "Vbuild": 0.39473684210526316
+        },
+        {
+            "nama": "S1",
+            "ram": 0.4082482904638631,
+            "harga": 0.19518001458970663,
+            "memory": 0.4364357804719848,
+            "processor": 0.2407717061715384,
+            "camera": 0.3418817293789138,
+            "build": 0.44112877325628463,
+            "VTOTAL": 2.2638056143716523,
+            "DramMin": 0.16329931618554525,
+            "DramPlus": 0.28577380332470415,
+            "Vram": 0.36363636363636365,
+            "DhargaMin": 0.09759000729485334,
+            "DhargaPlus": 0.16590301240125063,
+            "Vharga": 0.37037037037037046,
+            "DmemoryMin": 0.30550504633038933,
+            "DmemoryPlus": 0.4037030969365859,
+            "Vmemory": 0.4307692307692308,
+            "DprocessorMin": 0.09630868246861538,
+            "DprocessorPlus": 0.22271382820867303,
+            "Vprocessor": 0.30188679245283023,
+            "DcameraMin": 0.25071326821120343,
+            "DcameraPlus": 0.3190896140869862,
+            "Vcamera": 0.44,
+            "DbuildMin": 0.14704292441876154,
+            "DbuildPlus": 0.2646772639537708,
+            "Vbuild": 0.35714285714285715
         }
     ]
 }
