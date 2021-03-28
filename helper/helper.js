@@ -5,3 +5,12 @@ exports.checkNullQueryAll = (object) => {
     };
     return false;
 }
+
+exports.templateResponse = (status, success, msg, data) => {
+    return {
+        status,
+        success,
+        msg,
+        data
+    }
+}
