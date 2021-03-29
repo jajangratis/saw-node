@@ -178,64 +178,72 @@ Source : https://medium.com/skyshidigital/sistem-pengambilan-keputusan-dengan-al
 {
     "data": [
         {
-            "nama": "S1",
-            "ram": 2,
-            "harga": 500000,
-            "memory": 16,
-            "processor": 4,
-            "camera": 3,
-            "build": 6
+            "Nama": "Selamet",
+            "Test Tulis": 95,
+            "Sertifikasi": 5,
+            "Wawancara": 4,
+            "Kompetensi Sosial": 2,
+            "Kehadiran": 3
         },
         {
-            "nama": "S10",
-            "ram": 4,
-            "harga": 2500000,
-            "memory": 32,
-            "processor": 16,
-            "camera": 8,
-            "build": 10
+            "Nama": "Andriawan",
+            "Test Tulis": 85,
+            "Sertifikasi": 3,
+            "Wawancara": 3,
+            "Kompetensi Sosial": 2,
+            "Kehadiran": 2
         },
         {
-            "nama": "S2",
-            "ram": 2,
-            "harga": 250000,
-            "memory": 8,
-            "processor": 2,
-            "camera": 2,
-            "build": 7
+            "Nama": "Juti",
+            "Test Tulis": 85,
+            "Sertifikasi": 5,
+            "Wawancara": 3,
+            "Kompetensi Sosial": 2,
+            "Kehadiran": 3
+        },
+        {
+            "Nama": "Herman",
+            "Test Tulis": 80,
+            "Sertifikasi": 5,
+            "Wawancara": 4,
+            "Kompetensi Sosial": 3,
+            "Kehadiran": 3
+        },
+        {
+            "Nama": "Joni",
+            "Test Tulis": 75,
+            "Sertifikasi": 3,
+            "Wawancara": 1,
+            "Kompetensi Sosial": 3,
+            "Kehadiran": 3
         }
     ],
     "bobot": {
-        "harga": 0.3,
-        "ram": 0.3,
-        "memory": 0.15,
-        "processor": 0.15,
-        "camera": 0.1,
-        "build": 0.4
+        "Test Tulis": 0.45,
+        "Sertifikasi": 0.19,
+        "Wawancara": 0.14,
+        "Kompetensi Sosial": 0.12,
+        "Kehadiran": 0.10
     },
     "rule": [
         {
-            "parameter": "harga",
-            "rule": "cost"
-        },
-        {
-            "parameter": "ram",
+            "parameter": "Test Tulis",
             "rule": "benefit"
         },
         {
-            "parameter": "memory",
+            "parameter": "Sertifikasi",
             "rule": "benefit"
         },
         {
-            "parameter": "processor",
+            "parameter": "Wawancara",
             "rule": "benefit"
         },
         {
-            "parameter": "camera",
+            "parameter": "Kompetensi Sosial",
             "rule": "benefit"
         },
         {
-            "parameter": "build",
+            "parameter": "Kehadiran",
             "rule": "benefit"
         }
     ]

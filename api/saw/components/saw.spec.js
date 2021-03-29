@@ -11,66 +11,57 @@ describe('test', () => {
     {   
         "data":[
             {
-                "nama":"S1",
-                "ram": 2,
-                "harga":500000,
-                "memory":16,
-                "processor":4,
-                "camera":3,
-                "build":6
+                "Nama":"BalikPapan",
+                "Kandungan Zat Didalam Tanah": 3,
+                "Kondisi Geografi Dan Geologi":250,
+                "Akses Jalan":9,
+                "Jarak Tempuh":3
             },
             {
-                "nama":"S10",
-                "ram": 4,
-                "harga":2500000,
-                "memory":32,
-                "processor":16,
-                "camera":8,
-                "build":10
+                "Nama":"Samarinda",
+                "Kandungan Zat Didalam Tanah": 2,
+                "Kondisi Geografi Dan Geologi":350,
+                "Akses Jalan":3,
+                "Jarak Tempuh":11
             },
             {
-                "nama":"S2",
-                "ram": 2,
-                "harga":250000,
-                "memory":8,
-                "processor":2,
-                "camera":2,
-                "build":7
-            }
+                "Nama":"Banjarmasin",
+                "Kandungan Zat Didalam Tanah": 7,
+                "Kondisi Geografi Dan Geologi":300,
+                "Akses Jalan":8,
+                "Jarak Tempuh":10
+            },
+            {
+                "Nama":"Pontianak",
+                "Kandungan Zat Didalam Tanah": 1,
+                "Kondisi Geografi Dan Geologi":200,
+                "Akses Jalan":7,
+                "Jarak Tempuh":4
+            },
         ],
         "bobot": {
-            "harga": 0.3, 
-            "ram": 0.3, 
-            "memory": 0.15, 
-            "processor": 0.15, 
-            "camera": 0.1,
-            "build":0.4
+            "Kandungan Zat Didalam Tanah": 0.184, 
+            "Kondisi Geografi Dan Geologi": 0.451, 
+            "Akses Jalan": 0.162, 
+            "Jarak Tempuh": 0.204,
         },
         "rule": [
             {
-                "parameter": "harga",
+                "parameter": "Kandungan Zat Didalam Tanah",
+                "rule": "benefit"
+            },
+            {
+                "parameter": "Kondisi Geografi Dan Geologi",
+                "rule": "benefit"
+            },
+            {
+                "parameter": "Akses Jalan",
+                "rule": "benefit"
+            },
+            {
+                "parameter": "Jarak Tempuh",
                 "rule": "cost"
-            },
-            {
-                "parameter": "ram",
-                "rule": "feature"
-            },
-            {
-                "parameter": "memory",
-                "rule": "feature"
-            },
-            {
-                "parameter": "processor",
-                "rule": "feature"
-            },
-            {
-                "parameter": "camera",
-                "rule": "feature"
-            },
-            {
-                "parameter": "build",
-                "rule": "feature"
-            },
+            }
         ]
     }
     let minmax = saw.getMinMax(dataTest.data)
@@ -89,5 +80,5 @@ describe('test', () => {
         }
     }
     normalData = normalData.sort((a,b) => {return b.total - a.total})
-    // console.log({normalData});
+    console.log({normalData, minmax});
 })

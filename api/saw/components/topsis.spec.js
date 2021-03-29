@@ -149,6 +149,6 @@ describe('test', () => {
             }
         }
         dataTest.data = dataTest.data.sort((a, b) => b['VTOTAL']-a['VTOTAL'])
-        console.log({normalData, data:dataTest.data});
+        // console.log({normalData, data:dataTest.data});
     });
 })
