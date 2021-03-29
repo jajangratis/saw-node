@@ -81,6 +81,7 @@ exports.getTopSis = (req, res) => {
 		x.isp = 0
 		x.isn = 0
 		x.dataxbobot = x.data.map(y => y*x.bobot)
+		x.data = x.data.map(y => y*x.bobot)
 		if (x.criteria == 'cost') {
 			x.isn = x.dataxbobot.sort((a,b) => b-a)[0]
 			x.isp = x.dataxbobot.sort((a,b) => a-b)[0]
@@ -101,21 +102,30 @@ exports.getTopSis = (req, res) => {
 	}
 	for (let index = 0; index < post.length; index++) {
 		let data = post[index];
-		data['VTOTAL'] = 0
+		data['DMin'] = 0
+		data['DPlus'] = 0
+		data['V'] = 0
 		let keys = Object.keys(data)
 		for (let index = 0; index < keys.length; index++) {
 			const key = keys[index];
 			let normalDataFilter = normalData.filter(x => x.parameter == key)[0]
 			if (!h.checkNullQueryAll(normalDataFilter)) {
+				// if (!h.checkNullQueryAll(normalDataFilter.criteria)&&!h.checkNullQueryAll(normalDataFilter.bobot)) {
+				// 	data[`D${key}Min`] = Math.sqrt(Math.pow(data[key] - normalDataFilter.isn,2))
+				// 	data[`D${key}Plus`] = Math.sqrt(Math.pow(data[key] - normalDataFilter.isp,2))
+				// 	data[`V${key}`] = data[`D${key}Min`] / (data[`D${key}Min`] + data[`D${key}Plus`])
+				// 	data['VTOTAL'] = data['VTOTAL'] + data[`V${key}`]
+				// }
 				if (!h.checkNullQueryAll(normalDataFilter.criteria)&&!h.checkNullQueryAll(normalDataFilter.bobot)) {
-					data[`D${key}Min`] = Math.sqrt(Math.pow(data[key] - normalDataFilter.isn,2))
-					data[`D${key}Plus`] = Math.sqrt(Math.pow(data[key] - normalDataFilter.isp,2))
-					data[`V${key}`] = data[`D${key}Min`] / (data[`D${key}Min`] + data[`D${key}Plus`])
-					data['VTOTAL'] = data['VTOTAL'] + data[`V${key}`]
+					data['DMin'] = data['DMin'] + Math.pow(data[key] - normalDataFilter.isn,2)
+					data['DPlus'] = data['DPlus'] + Math.pow(data[key] - normalDataFilter.isp,2)
 				}
 			}
 		}
+		data['DMin'] = Math.sqrt(data['DMin'])
+		data['DPlus'] = Math.sqrt(data['DPlus'])
+		data['V'] = data['DMin'] / (data['DMin'] + data['DPlus'])
 	}
-	post = post.sort((a, b) => b['VTOTAL']-a['VTOTAL'])
+	post = post.sort((a, b) => b['V']-a['V'])
 	return res.status(200).json(h.templateResponse(200, true, 'ok', post))
 };

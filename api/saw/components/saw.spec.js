@@ -80,5 +80,5 @@ describe('test', () => {
         }
     }
     normalData = normalData.sort((a,b) => {return b.total - a.total})
-    console.log({normalData, minmax});
+    // console.log({normalData, minmax});
 })

@@ -12,66 +12,57 @@ describe('test', () => {
         {   
             "data":[
                 {
-                    "nama":"S1",
-                    "ram": 2,
-                    "harga":500000,
-                    "memory":16,
-                    "processor":4,
-                    "camera":3,
-                    "build":6
+                    "Nama":"BalikPapan",
+                    "Kandungan Zat Didalam Tanah": 3,
+                    "Kondisi Geografi Dan Geologi":250,
+                    "Akses Jalan":9,
+                    "Jarak Tempuh":3
                 },
                 {
-                    "nama":"S10",
-                    "ram": 4,
-                    "harga":2500000,
-                    "memory":32,
-                    "processor":16,
-                    "camera":8,
-                    "build":10
+                    "Nama":"Samarinda",
+                    "Kandungan Zat Didalam Tanah": 2,
+                    "Kondisi Geografi Dan Geologi":350,
+                    "Akses Jalan":3,
+                    "Jarak Tempuh":11
                 },
                 {
-                    "nama":"S2",
-                    "ram": 2,
-                    "harga":250000,
-                    "memory":8,
-                    "processor":2,
-                    "camera":2,
-                    "build":7
-                }
+                    "Nama":"Banjarmasin",
+                    "Kandungan Zat Didalam Tanah": 7,
+                    "Kondisi Geografi Dan Geologi":300,
+                    "Akses Jalan":8,
+                    "Jarak Tempuh":10
+                },
+                {
+                    "Nama":"Pontianak",
+                    "Kandungan Zat Didalam Tanah": 1,
+                    "Kondisi Geografi Dan Geologi":200,
+                    "Akses Jalan":7,
+                    "Jarak Tempuh":4
+                },
             ],
             "bobot": {
-                "harga": 0.3, 
-                "ram": 0.3, 
-                "memory": 0.15, 
-                "processor": 0.15, 
-                "camera": 0.1,
-                "build":0.4
+                "Kandungan Zat Didalam Tanah": 0.183787934879913, 
+                "Kondisi Geografi Dan Geologi": 0.450186661335649, 
+                "Akses Jalan": 0.259915390107716, 
+                "Jarak Tempuh": 0.106110013676723,
             },
             "rule": [
                 {
-                    "parameter": "harga",
+                    "parameter": "Kandungan Zat Didalam Tanah",
+                    "rule": "benefit"
+                },
+                {
+                    "parameter": "Kondisi Geografi Dan Geologi",
+                    "rule": "benefit"
+                },
+                {
+                    "parameter": "Akses Jalan",
+                    "rule": "benefit"
+                },
+                {
+                    "parameter": "Jarak Tempuh",
                     "rule": "cost"
-                },
-                {
-                    "parameter": "ram",
-                    "rule": "benefit"
-                },
-                {
-                    "parameter": "memory",
-                    "rule": "benefit"
-                },
-                {
-                    "parameter": "processor",
-                    "rule": "benefit"
-                },
-                {
-                    "parameter": "camera",
-                    "rule": "benefit"
-                },
-                {
-                    "parameter": "build",
-                    "rule": "benefit"
-                },
+                }
             ]
         }
         let rule = dataTest.rule
@@ -113,6 +104,7 @@ describe('test', () => {
             x.isp = 0
             x.isn = 0
             x.dataxbobot = x.data.map(y => y*x.bobot)
+            x.data = x.data.map(y => y*x.bobot)
             if (x.criteria == 'cost') {
                 x.isn = x.dataxbobot.sort((a,b) => b-a)[0]
                 x.isp = x.dataxbobot.sort((a,b) => a-b)[0]
@@ -133,22 +125,32 @@ describe('test', () => {
         }
         for (let index = 0; index < dataTest.data.length; index++) {
             let data = dataTest.data[index];
-            data['VTOTAL'] = 0
+            
+            data['DMin'] = 0
+            data['DPlus'] = 0
+            data['V'] = 0
             let keys = Object.keys(data)
             for (let index = 0; index < keys.length; index++) {
                 const key = keys[index];
                 let normalDataFilter = normalData.filter(x => x.parameter == key)[0]
                 if (!h.checkNullQueryAll(normalDataFilter)) {
+                    // if (!h.checkNullQueryAll(normalDataFilter.criteria)&&!h.checkNullQueryAll(normalDataFilter.bobot)) {
+                    //     data[`D${key}Min`] = Math.sqrt(Math.pow(data[key] - normalDataFilter.isn,2))
+                    //     data[`D${key}Plus`] = Math.sqrt(Math.pow(data[key] - normalDataFilter.isp,2))
+                    //     data[`V${key}`] = data[`D${key}Min`] / (data[`D${key}Min`] + data[`D${key}Plus`])
+                    //     data['VTOTAL'] = data['VTOTAL'] + data[`V${key}`]
+                    // }
                     if (!h.checkNullQueryAll(normalDataFilter.criteria)&&!h.checkNullQueryAll(normalDataFilter.bobot)) {
-                        data[`D${key}Min`] = Math.sqrt(Math.pow(data[key] - normalDataFilter.isn,2))
-                        data[`D${key}Plus`] = Math.sqrt(Math.pow(data[key] - normalDataFilter.isp,2))
-                        data[`V${key}`] = data[`D${key}Min`] / (data[`D${key}Min`] + data[`D${key}Plus`])
-                        data['VTOTAL'] = data['VTOTAL'] + data[`V${key}`]
+                        data['DMin'] = data['DMin'] + Math.pow(data[key] - normalDataFilter.isn,2)
+                        data['DPlus'] = data['DPlus'] + Math.pow(data[key] - normalDataFilter.isp,2)
                     }
                 }
             }
+            data['DMin'] = Math.sqrt(data['DMin'])
+            data['DPlus'] = Math.sqrt(data['DPlus'])
+            data['V'] = data['DMin'] / (data['DMin'] + data['DPlus'])
         }
-        dataTest.data = dataTest.data.sort((a, b) => b['VTOTAL']-a['VTOTAL'])
-        // console.log({normalData, data:dataTest.data});
+        // dataTest.data = dataTest.data.sort((a, b) => b['V']-a['V'])
+        console.log({data:dataTest.data});
     });
 })
