@@ -260,34 +260,49 @@ Source : https://medium.com/skyshidigital/sistem-pengambilan-keputusan-dengan-al
     "msg": "ok",
     "data": [
         {
-            "nama": "S10",
-            "ram": 2.1,
-            "harga": 0.3,
-            "memory": 1.05,
-            "processor": 1.05,
-            "camera": 0.7000000000000001,
-            "build": 2.8000000000000003,
-            "total": 8
+            "Nama": "Selamet",
+            "Test Tulis": 2.7,
+            "Sertifikasi": 1.1400000000000001,
+            "Wawancara": 0.8400000000000001,
+            "Kompetensi Sosial": 0.12,
+            "Kehadiran": 0.6000000000000001,
+            "total": 5.4
         },
         {
-            "nama": "S2",
-            "ram": 0.3,
-            "harga": 2.1,
-            "memory": 0.15,
-            "processor": 0.15,
-            "camera": 0.1,
-            "build": 1,
-            "total": 3.8
+            "Nama": "Herman",
+            "Test Tulis": 1.0125,
+            "Sertifikasi": 1.1400000000000001,
+            "Wawancara": 0.8400000000000001,
+            "Kompetensi Sosial": 0.72,
+            "Kehadiran": 0.6000000000000001,
+            "total": 4.3125
         },
         {
-            "nama": "S1",
-            "ram": 0.3,
-            "harga": 1.9,
-            "memory": 0.44999999999999996,
-            "processor": 0.2785714285714286,
-            "camera": 0.2,
-            "build": 0.4,
-            "total": 3.528571428571428
+            "Nama": "Juti",
+            "Test Tulis": 1.575,
+            "Sertifikasi": 1.1400000000000001,
+            "Wawancara": 0.6066666666666667,
+            "Kompetensi Sosial": 0.12,
+            "Kehadiran": 0.6000000000000001,
+            "total": 4.041666666666666
+        },
+        {
+            "Nama": "Andriawan",
+            "Test Tulis": 1.575,
+            "Sertifikasi": 0.19,
+            "Wawancara": 0.6066666666666667,
+            "Kompetensi Sosial": 0.12,
+            "Kehadiran": 0.1,
+            "total": 2.591666666666667
+        },
+        {
+            "Nama": "Joni",
+            "Test Tulis": 0.45,
+            "Sertifikasi": 0.19,
+            "Wawancara": 0.14,
+            "Kompetensi Sosial": 0.72,
+            "Kehadiran": 0.6000000000000001,
+            "total": 2.1
         }
     ]
 }
@@ -315,64 +330,72 @@ Source : https://medium.com/skyshidigital/sistem-pengambilan-keputusan-dengan-al
 {
     "data": [
         {
-            "nama": "S1",
-            "ram": 2,
-            "harga": 500000,
-            "memory": 16,
-            "processor": 4,
-            "camera": 3,
-            "build": 6
+            "Nama": "Selamet",
+            "Test Tulis": 95,
+            "Sertifikasi": 5,
+            "Wawancara": 4,
+            "Kompetensi Sosial": 2,
+            "Kehadiran": 3
         },
         {
-            "nama": "S10",
-            "ram": 4,
-            "harga": 2500000,
-            "memory": 32,
-            "processor": 16,
-            "camera": 8,
-            "build": 10
+            "Nama": "Andriawan",
+            "Test Tulis": 85,
+            "Sertifikasi": 3,
+            "Wawancara": 3,
+            "Kompetensi Sosial": 2,
+            "Kehadiran": 2
         },
         {
-            "nama": "S2",
-            "ram": 2,
-            "harga": 250000,
-            "memory": 8,
-            "processor": 2,
-            "camera": 2,
-            "build": 7
+            "Nama": "Juti",
+            "Test Tulis": 85,
+            "Sertifikasi": 5,
+            "Wawancara": 3,
+            "Kompetensi Sosial": 2,
+            "Kehadiran": 3
+        },
+        {
+            "Nama": "Herman",
+            "Test Tulis": 80,
+            "Sertifikasi": 5,
+            "Wawancara": 4,
+            "Kompetensi Sosial": 3,
+            "Kehadiran": 3
+        },
+        {
+            "Nama": "Joni",
+            "Test Tulis": 75,
+            "Sertifikasi": 3,
+            "Wawancara": 1,
+            "Kompetensi Sosial": 3,
+            "Kehadiran": 3
         }
     ],
     "bobot": {
-        "harga": 0.3,
-        "ram": 0.3,
-        "memory": 0.15,
-        "processor": 0.15,
-        "camera": 0.1,
-        "build": 0.4
+        "Test Tulis": 0.45,
+        "Sertifikasi": 0.19,
+        "Wawancara": 0.14,
+        "Kompetensi Sosial": 0.12,
+        "Kehadiran": 0.10
     },
     "rule": [
         {
-            "parameter": "harga",
-            "rule": "cost"
-        },
-        {
-            "parameter": "ram",
+            "parameter": "Test Tulis",
             "rule": "benefit"
         },
         {
-            "parameter": "memory",
+            "parameter": "Sertifikasi",
             "rule": "benefit"
         },
         {
-            "parameter": "processor",
+            "parameter": "Wawancara",
             "rule": "benefit"
         },
         {
-            "parameter": "camera",
+            "parameter": "Kompetensi Sosial",
             "rule": "benefit"
         },
         {
-            "parameter": "build",
+            "parameter": "Kehadiran",
             "rule": "benefit"
         }
     ]
@@ -389,88 +412,59 @@ Source : https://medium.com/skyshidigital/sistem-pengambilan-keputusan-dengan-al
     "msg": "ok",
     "data": [
         {
-            "nama": "S10",
-            "ram": 0.8164965809277261,
-            "harga": 0.9759000729485332,
-            "memory": 0.8728715609439696,
-            "processor": 0.9630868246861536,
-            "camera": 0.9116846116771036,
-            "build": 0.7352146220938077,
-            "VTOTAL": 2.725080390227725,
-            "DramMin": 0.5715476066494083,
-            "DramPlus": 0.6940220937885673,
-            "Vram": 0.45161290322580644,
-            "DhargaMin": 0.6831300510639733,
-            "DhargaPlus": 0.9466230707600772,
-            "Vharga": 0.4191616766467066,
-            "DmemoryMin": 0.7419408268023742,
-            "DmemoryPlus": 0.8401388774085707,
-            "Vmemory": 0.4689655172413793,
-            "DprocessorMin": 0.8186238009832305,
-            "DprocessorPlus": 0.9450289467232882,
-            "Vprocessor": 0.46416382252559724,
-            "DcameraMin": 0.8205161505093932,
-            "DcameraPlus": 0.888892496385176,
-            "Vcamera": 0.48,
-            "DbuildMin": 0.44112877325628463,
-            "DbuildPlus": 0.5587631127912939,
-            "Vbuild": 0.4411764705882353
+            "Nama": "Selamet",
+            "Test Tulis": 0.22689344151565272,
+            "Sertifikasi": 0.09851041099939041,
+            "Wawancara": 0.07841568470556855,
+            "Kompetensi Sosial": 0.04381780460041328,
+            "Kehadiran": 0.047434164902525694,
+            "DMin": 0.08685160817336575,
+            "DPlus": 0.021908902300206638,
+            "V": 0.798558298367584
         },
         {
-            "nama": "S2",
-            "ram": 0.4082482904638631,
-            "harga": 0.09759000729485331,
-            "memory": 0.2182178902359924,
-            "processor": 0.1203858530857692,
-            "camera": 0.2279211529192759,
-            "build": 0.5146502354656654,
-            "VTOTAL": 2.4095901369585584,
-            "DramMin": 0.16329931618554525,
-            "DramPlus": 0.28577380332470415,
-            "Vram": 0.36363636363636365,
-            "DhargaMin": 0.19518001458970666,
-            "DhargaPlus": 0.06831300510639732,
-            "Vharga": 0.7407407407407408,
-            "DmemoryMin": 0.08728715609439697,
-            "DmemoryPlus": 0.18548520670059354,
-            "Vmemory": 0.32,
-            "DprocessorMin": 0.024077170617153823,
-            "DprocessorPlus": 0.10232797512290381,
-            "Vprocessor": 0.1904761904761904,
-            "DcameraMin": 0.1367526917515655,
-            "DcameraPlus": 0.2051290376273483,
-            "Vcamera": 0.39999999999999997,
-            "DbuildMin": 0.22056438662814226,
-            "DbuildPlus": 0.3381987261631515,
-            "Vbuild": 0.39473684210526316
+            "Nama": "Herman",
+            "Test Tulis": 0.1910681612763391,
+            "Sertifikasi": 0.09851041099939041,
+            "Wawancara": 0.07841568470556855,
+            "Kompetensi Sosial": 0.06572670690061992,
+            "Kehadiran": 0.047434164902525694,
+            "DMin": 0.07670800046447303,
+            "DPlus": 0.03582528023931361,
+            "V": 0.6816472423512299
         },
         {
-            "nama": "S1",
-            "ram": 0.4082482904638631,
-            "harga": 0.19518001458970663,
-            "memory": 0.4364357804719848,
-            "processor": 0.2407717061715384,
-            "camera": 0.3418817293789138,
-            "build": 0.44112877325628463,
-            "VTOTAL": 2.2638056143716523,
-            "DramMin": 0.16329931618554525,
-            "DramPlus": 0.28577380332470415,
-            "Vram": 0.36363636363636365,
-            "DhargaMin": 0.09759000729485334,
-            "DhargaPlus": 0.16590301240125063,
-            "Vharga": 0.37037037037037046,
-            "DmemoryMin": 0.30550504633038933,
-            "DmemoryPlus": 0.4037030969365859,
-            "Vmemory": 0.4307692307692308,
-            "DprocessorMin": 0.09630868246861538,
-            "DprocessorPlus": 0.22271382820867303,
-            "Vprocessor": 0.30188679245283023,
-            "DcameraMin": 0.25071326821120343,
-            "DcameraPlus": 0.3190896140869862,
-            "Vcamera": 0.44,
-            "DbuildMin": 0.14704292441876154,
-            "DbuildPlus": 0.2646772639537708,
-            "Vbuild": 0.35714285714285715
+            "Nama": "Juti",
+            "Test Tulis": 0.2030099213561103,
+            "Sertifikasi": 0.09851041099939041,
+            "Wawancara": 0.058811763529176414,
+            "Kompetensi Sosial": 0.04381780460041328,
+            "Kehadiran": 0.047434164902525694,
+            "DMin": 0.06253291620590763,
+            "DPlus": 0.03787791257053991,
+            "V": 0.6227706410543582
+        },
+        {
+            "Nama": "Andriawan",
+            "Test Tulis": 0.2030099213561103,
+            "Sertifikasi": 0.05910624659963424,
+            "Wawancara": 0.058811763529176414,
+            "Kompetensi Sosial": 0.04381780460041328,
+            "Kehadiran": 0.0316227766016838,
+            "DMin": 0.04590944823423663,
+            "DPlus": 0.05689836933291214,
+            "V": 0.44655600440356535
+        },
+        {
+            "Nama": "Joni",
+            "Test Tulis": 0.1791264011965679,
+            "Sertifikasi": 0.05910624659963424,
+            "Wawancara": 0.019603921176392137,
+            "Kompetensi Sosial": 0.06572670690061992,
+            "Kehadiran": 0.047434164902525694,
+            "DMin": 0.027018512172212586,
+            "DPlus": 0.085400244977985,
+            "V": 0.24033811489406862
         }
     ]
 }

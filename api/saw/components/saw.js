@@ -69,10 +69,7 @@ exports.hitungPeringkat = (nilai, criteria) => {
 }
 
 exports.interpolate = (rmin, rmax, dmin, dmax, value) => {
-    // let result = (((value - dmin) / (dmax - dmin)) * (rmax - rmin)) + rmin
-    // console.log({rmin, rmax, dmin, dmax, value});
-    // console.log(((value ,'-', dmin) ,'/', (dmax ,'-', dmin)) ,'*', (rmax ,'+', rmin));
-    let result = (value - dmin) / (dmax - dmin) * (rmax - rmin) + rmin
+    let result = ((value - dmin) / (dmax - dmin)) * (rmax - rmin) 
     return result
 }
 
