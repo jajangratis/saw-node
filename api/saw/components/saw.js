@@ -69,7 +69,7 @@ exports.hitungPeringkat = (nilai, criteria) => {
 }
 
 exports.interpolate = (rmin, rmax, dmin, dmax, value) => {
-    let result = ((value - dmin) / (dmax - dmin)) * (rmax - rmin) 
+    let result = ((value - dmin) / (dmax - dmin)) * (rmax - rmin) + 1
     return result
 }
 
@@ -84,9 +84,9 @@ exports.normalizeWithInterpolate = (datas, minmax, criteria) => {
                 let benefitKey = criteria.filter(x => x.rule == 'benefit')
                 let costKey = criteria.filter(x => x.rule == 'cost')
                 if (rule[0]['rule'] == 'benefit') {
-                    data[key] = this.interpolate(1, keys.length, minmax[key+'Min'], minmax[key+'Max'], data[key])
+                    data[key] = this.interpolate(1, criteria.length, minmax[key+'Min'], minmax[key+'Max'], data[key])
                 } else {
-                    data[key] = this.interpolate(1, keys.length, minmax[key+'Max'], minmax[key+'Min'], data[key])
+                    data[key] = this.interpolate(1, criteria.length, minmax[key+'Max'], minmax[key+'Min'], data[key])
                 }
             } else {
                 data[key] = data[key]

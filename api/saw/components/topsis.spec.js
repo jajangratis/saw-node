@@ -151,6 +151,5 @@ describe('test', () => {
             data['V'] = data['DMin'] / (data['DMin'] + data['DPlus'])
         }
         // dataTest.data = dataTest.data.sort((a, b) => b['V']-a['V'])
-        console.log({data:dataTest.data});
     });
 })
